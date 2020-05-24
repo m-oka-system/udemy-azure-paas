@@ -2,7 +2,7 @@
 
 ## 参考サイト
 
-- [サルでもわかるGit入門](https://backlog.com/ja/git-tutorial/)
+- [サル先生のGit入門](https://backlog.com/ja/git-tutorial/)
 
 - [はじめてのGitとGitHub](https://www.udemy.com/course/intro_git/)
 
