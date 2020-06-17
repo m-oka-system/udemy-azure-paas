@@ -39,5 +39,4 @@ git add .
 git commit -m "Update Layout.cshtml"
 git push east master
 git push west master
-
 ```
