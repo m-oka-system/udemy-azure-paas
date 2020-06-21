@@ -1,4 +1,4 @@
-# Chapter7.東西リージョンともSSL接続できるようにしてみよう
+# Chapter7.TrafficManagerでSSL接続できるようにしてみよう
 
 ## 参考サイト
 
