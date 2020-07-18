@@ -26,9 +26,9 @@ Japanese_CI_AS
 -- テーブルの作成
 create table cloud (id int not null primary key, name varchar(100));
 -- テーブルにデータを挿入
-insert into cloud values (1, 'Azure'); 
-insert into cloud values (2, 'AWS'); 
-insert into cloud values (3, 'GCP'); 
+insert into cloud values (1, 'Azure');
+insert into cloud values (2, 'AWS');
+insert into cloud values (3, 'GCP');
 -- テーブルを表示
 select * from cloud;
 ```
@@ -36,6 +36,7 @@ select * from cloud;
 #### データベースレベルのファイアウォール規則
 ```sql
 -- ルールの作成
+-- start_ip_address、end_ip_addressには一般的には接続元PCのグローバルIPアドレスを入力
 exec sp_set_database_firewall_rule
     @name=N'Client1_dblevelrule',
     @start_ip_address = 'xxx.xxx.xxx.xxx',
