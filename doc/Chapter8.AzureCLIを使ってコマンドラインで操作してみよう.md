@@ -8,6 +8,8 @@
 
 - [CLI を使用した Azure サービスの制御](https://docs.microsoft.com/ja-jp/learn/modules/control-azure-services-with-cli/)
 
+- [Microsoft Lean の活用方法＆Tips](https://youtu.be/9usUqNhK7xw)
+
 - [Azure CLI リファレンス](https://docs.microsoft.com/ja-jp/cli/azure/reference-index?view=azure-cli-latest)
 
 
