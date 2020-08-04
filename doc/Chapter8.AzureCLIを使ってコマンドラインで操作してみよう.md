@@ -15,3 +15,10 @@
 - [Azure CLI コマンドの出力のクエリ](https://docs.microsoft.com/ja-jp/cli/azure/query-azure-cli?view=azure-cli-latest)
 
 - [Azure CLI コマンドの出力形式](https://docs.microsoft.com/ja-jp/cli/azure/format-output-azure-cli?view=azure-cli-latest)
+
+## コマンド集
+
+#### サンプルスクリプトをダウンロードする
+```bash
+git clone https://github.com/m-oka-system/udemy-azure-cli.git
+```
