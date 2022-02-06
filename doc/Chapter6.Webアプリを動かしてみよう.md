@@ -11,7 +11,7 @@
 #### サンプルアプリのデプロイ手順
 ```bash
 # Githubからクローン
-git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
+git clone https://github.com/m-oka-system/dotnet-sqldb-tutorial.git
 cd dotnet-sqldb-tutorial/
 
 # リモートリポジトリ、ユーザー名、Eメールアドレスを登録
