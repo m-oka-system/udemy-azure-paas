@@ -2,13 +2,13 @@
 
 ## 参考サイト
 
-- [Azure SQL Database の価格](https://azure.microsoft.com/ja-jp/pricing/details/sql-database/single/)
+- [Azure SQL Database の価格](https://azure.microsoft.com/ja-jp/pricing/details/azure-sql-database/single/)
 
-- [アクティブ geo レプリケーションの作成と使用](https://docs.microsoft.com/ja-jp/azure/sql-database/sql-database-active-geo-replication)
+- [チュートリアル: アクティブ geo レプリケーションとフェールオーバーを構成する (Azure SQL Database)](https://learn.microsoft.com/ja-jp/azure/azure-sql/database/active-geo-replication-configure-portal?view=azuresql&tabs=portal)
 
-- [自動フェールオーバー グループを使用して、複数のデータベースの透過的な調整されたフェールオーバーを有効にする](https://docs.microsoft.com/ja-jp/azure/sql-database/sql-database-auto-failover-group)
+- [Azure SQL Database の自動フェールオーバー グループを構成する](https://learn.microsoft.com/ja-jp/azure/azure-sql/database/auto-failover-group-configure-sql-db?view=azuresql&tabs=azure-portal&pivots=azure-sql-single-db)
 
-- [Azure Data Studio のダウンロードとインストール](https://docs.microsoft.com/ja-jp/sql/azure-data-studio/download-azure-data-studio)
+- [Azure Data Studio のダウンロードとインストール](https://learn.microsoft.com/ja-jp/sql/azure-data-studio/download-azure-data-studio)
 
 ## コマンド集
 
@@ -25,10 +25,12 @@ Japanese_CI_AS
 ```sql
 -- テーブルの作成
 create table cloud (id int not null primary key, name varchar(100));
+
 -- テーブルにデータを挿入
 insert into cloud values (1, 'Azure');
 insert into cloud values (2, 'AWS');
 insert into cloud values (3, 'GCP');
+
 -- テーブルを表示
 select * from cloud;
 ```
