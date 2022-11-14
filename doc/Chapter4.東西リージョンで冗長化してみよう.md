@@ -2,11 +2,11 @@
 
 ## 参考サイト
 
-- [Traffic Manager のしくみ](https://docs.microsoft.com/ja-jp/azure/traffic-manager/traffic-manager-how-it-works)
+- [Traffic Manager のしくみ](https://learn.microsoft.com/ja-jp/azure/traffic-manager/traffic-manager-how-it-works)
 
-- [Traffic Manager のルーティング方法](https://docs.microsoft.com/ja-jp/azure/traffic-manager/traffic-manager-routing-methods)
+- [Traffic Manager のルーティング方法](https://learn.microsoft.com/ja-jp/azure/traffic-manager/traffic-manager-routing-methods)
 
-- [Load Balancer と Application Gateway の通信の違い](https://docs.microsoft.com/ja-jp/archive/blogs/jpaztech/lb_appgw_traffic_different)
+- [Load Balancer と Application Gateway の通信の違い](https://learn.microsoft.com/ja-jp/archive/blogs/jpaztech/lb_appgw_traffic_different)
 
 - [Traffic Manager の価格](https://azure.microsoft.com/ja-jp/pricing/details/traffic-manager/)
 
@@ -19,5 +19,5 @@
 dig paas-tm.trafficmanager.net +short
 
 # HTTPリクエストの結果を確認
-curl http://paas-tm.trafficmanager.net
+curl -k https://paas-tm.trafficmanager.net
 ```
