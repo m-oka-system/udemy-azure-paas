@@ -1,4 +1,4 @@
-# Chapter5.SQLDatabaseを使ってみよう
+# Chapter5.SQLDatabase を使ってみよう
 
 ## 参考サイト
 
@@ -13,6 +13,7 @@
 ## コマンド集
 
 #### データベース照合順序
+
 ```sql
 -- 1文字目のCは「大文字小文字」、Aは「アクセント(濁点、半濁点)」
 -- 2文字目のS (Sensitive)は区別する、I(Insensitive)は区別しない
@@ -22,6 +23,7 @@ Japanese_CI_AS
 ```
 
 #### テーブルの作成
+
 ```sql
 -- テーブルの作成
 create table cloud (id int not null primary key, name varchar(100));
@@ -36,6 +38,7 @@ select * from cloud;
 ```
 
 #### データベースレベルのファイアウォール規則
+
 ```sql
 -- ルールの作成
 -- start_ip_address、end_ip_addressには一般的には接続元PCのグローバルIPアドレスを入力
@@ -51,7 +54,8 @@ select * from sys.database_firewall_rules
 exec sp_delete_database_firewall_rule N'Client1_dblevelrule'
 ```
 
-#### 手動フェールオーバーの動作確認
+#### 手動フェールオーバーの動作確認 (Bash)
+
 ```sql
 # 読み取り/書き込みのリスナーエンドポイントのDNS応答を確認
 dig paas-fog.database.windows.net +short
@@ -74,3 +78,42 @@ select * from cloud;
 # 読み取り専用なので削除できない
 delete cloud;
 ```
+
+#### 手動フェールオーバーの動作確認 (PowerShell)
+
+- 2025 年 4 月現在、Cloud Shell で sqlcmd コマンドが使用不可になっている
+- 代わりに `Invoke-Sqlcmd` コマンドで接続確認が可能
+- Cloud Shell 左上の切り替えボタンからシェル環境を PowerShell に切り替えて実行する
+
+```powershell
+# 資格情報 (ユーザー名とパスワード) を入力
+$credential = Get-Credential
+
+# 接続情報を変数に格納
+$primaryServer = "paas-fog.database.windows.net"
+$secondaryServer = "paas-fog.secondary.database.windows.net"
+$database = "MyDatabase"
+
+# 読み取り/書き込みのリスナーエンドポイントのDNS応答を確認
+dig $primaryServer +short
+# 読み取り専用のリスナーエンドポイントのDNS応答を確認
+dig $secondaryServer +short
+
+# プライマリデータベースに接続
+# ホスト名を確認
+Invoke-Sqlcmd -Credential $credential -ServerInstance $primaryServer -Database $database -Query "select @@servername;"
+# cloudテーブルをSELECT
+Invoke-Sqlcmd -Credential $credential -ServerInstance $primaryServer -Database $database -Query "select * from cloud;"
+
+# セカンダリデータベースに接続
+# ホスト名を確認
+Invoke-Sqlcmd -Credential $credential -ServerInstance $secondaryServer -Database $database -Query "select @@servername;"
+# cloudテーブルをSELECT
+Invoke-Sqlcmd -Credential $credential -ServerInstance $secondaryServer -Database $database -Query "select * from cloud;"
+# 読み取り専用なので削除できない
+Invoke-Sqlcmd -Credential $credential -ServerInstance $secondaryServer -Database $database -Query "delete cloud;"
+```
+
+- コマンドの実行例
+
+![Image](https://github.com/user-attachments/assets/88fb9be8-e8e4-4d70-8c7e-9c808f5081d7)
